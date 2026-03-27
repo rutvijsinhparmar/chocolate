@@ -10,9 +10,8 @@
     --color-button-text: #9E0E2B;
     --color-message-text: #9E0E2B;
     
-    /* Images - FIXED: Removed 'assets/' paths to match your GitHub root */
-    --image-path-background: url('image-5.png'); /* Using image-5 as a placeholder bg */
-    --image-path-content: url('image-2.png'); /* Starting image */
+    /* Images - FIXED: Removed 'assets/' to match your GitHub */
+    --image-path-content: url('image-2.png');
     
     /* Fonts */
     --font-family-main: "Pixelify Sans", sans-serif;
@@ -40,40 +39,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-page-background); /* Simplified background for now */
+    background-color: var(--color-page-background);
 }
 
-/* Image Content - FIXED: Added pixelated rendering */
-.image-content {
-    position: relative;
-    height: 65%;
-    aspect-ratio: 142.5 / 171;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background: var(--image-path-content) no-repeat center;
-    background-size: contain;
-    transition: opacity 0.5s ease;
-    opacity: 1;
-    /* This keeps your pixel art looking crisp! */
-    image-rendering: pixelated; 
-    image-rendering: crisp-edges;
-}
-
-/* Rest of your CSS remains the same... */
-  
-  h1 { 
+h1 { 
     color: var(--color-heading-text);
     font-family: var(--font-family-main);
     font-size: var(--font-size-large);
     font-weight: 400;
-    font-style: normal;
-    line-height: normal;
-  }
-  
-  /* Container styles */
-  .container {
+    margin: 0;
+}
+
+/* Container styles */
+.container {
     position: relative;
     width: 420px;
     aspect-ratio: 420 / 330;
@@ -86,10 +64,10 @@ body {
     align-items: center;
     overflow: hidden;
     padding: var(--padding-container);
-  }
-  
-  /* Inner container */
-  .inner-container {
+}
+
+/* Inner container */
+.inner-container {
     position: relative;
     width: 100%;
     aspect-ratio: 430 / 280;
@@ -101,104 +79,61 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-  }
-  
-  /* Header */
-  header {
+}
+
+/* Header */
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 12%;
-    text-align: center;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Shrink Close Icons */
-  .shrink-close-icons {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-icons);
-  }
-  
-  /* Icons */
-  .shrink-icon {
+}
+
+/* Icons */
+.shrink-icon {
     width: 24px;
     height: 24px;
-    object-fit: cover;
-    border-radius: 2px;
-    opacity: 1;
-    transition: opacity 0.2s ease-in-out;
-  }
-  
-  /* Image Content */
-  .image-content {
+    object-fit: contain;
+}
+
+/* Image Content */
+.image-content {
     position: relative;
     height: 65%;
-    aspect-ratio: 142.5 / 171;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    width: 80%;
     background: var(--image-path-content) no-repeat center;
     background-size: contain;
-    transition: opacity 0.5s ease;
-    opacity: 1;
-  }
-  
-  /* Main Button */
-  #main-button {
-    position: relative;
-    height: 16.5%;
-    aspect-ratio: 175 / 44;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--gap-button);
+    transition: opacity 0.3s ease;
+    /* Keeps pixel art sharp */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Main Button */
+#main-button {
+    margin-top: 10px;
+    padding: 5px 20px;
     border: var(--border-width-inner) solid var(--color-border);
     border-radius: var(--border-radius);
     background: var(--color-button-background);
     color: var(--color-button-text);
-    text-align: center;
     font-family: var(--font-family-main);
     font-size: var(--font-size-medium);
-    font-weight: 400;
-    font-style: normal;
-    line-height: normal;
+    cursor: pointer;
     transition: transform 0.2s ease;
-  }
-  
-  #main-button:hover {
+}
+
+#main-button:hover {
     transform: scale(1.05);
-  }
-  
-  .final-message {
-    display: none; /* Hide it initially */
+}
+
+.final-message {
+    display: none; 
     color: var(--color-message-text);
-    text-align: center;
     font-family: var(--font-family-main);
     font-size: var(--font-size-large);
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 4px;
-  }
-  
-  /* Responsive Styles for Mobile */
-  @media (max-width: 768px) {
-    body {
-      background-size: cover;
-      background-position: bottom center;
-    }
-  
-    .container {
-      margin: 1rem;
-    }
-  
-    h1 {
-      font-size: calc(var(--font-size-large) - 0.25rem);
-    }
-  }
+    text-align: center;
+}
